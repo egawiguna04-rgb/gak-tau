@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virus Terdeteksi</title>
+    <style>
+        /* Menghilangkan margin dan scrollbar */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0000AA; /* Warna biru klasik BSOD */
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .header {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .code {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            white-space: pre-wrap; /* Agar teks tetap terformat */
+        }
+
+        .countdown-section {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .restart-button {
+            background-color: #555;
+            color: white;
+            border: 2px solid #999;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .restart-button:hover {
+            background-color: #777;
+        }
+
+        /* Layar Prank Reveal */
+        .prank-reveal {
+            display: none; /* Awalnya disembunyikan */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #28a745; /* Warna hijau ceria */
+            color: white;
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .prank-reveal h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .prank-reveal p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .close-button {
+            background-color: white;
+            color: #28a745;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Layar Palsu Virus -->
+    <div class="container" id="virus-screen">
+        <div class="header">
+            <p>:(</p>
+            <p>PERANGKAT ANDA TELAH TERKENA VIRUS</p>
+        </div>
+        <div class="message">
+            <p>Sistem telah mendeteksi ancaman yang tidak diketahui dan telah merusak file-file kritis. Untuk mencegah kerusakan lebih lanjut pada data Anda, perangkat perlu dimulai ulang segera.</p>
+        </div>
+        <div class="code">
+<p>STOP_CODE: VIRUS_DETECTED_FATAL_ERROR</p>
+<p>Kode Kesalahan: 0x000FEE1_DE4D</p>
+<p>Sumber Penyebab: Trojan.K4k3pL4g1.M4lware</p>
+<p>*** Mengumpulkan informasi error... ***</p>
+<p>*** Memori fisik dibuang ***</p>
+<p>Corrupt file: C:\android\System32\kernel32.dll</p>
+<p>Corrupt file: C:\Users\{username}\Documents\rahasia_saya.docx</p>
+        </div>
+        <div class="countdown-section">
+            <p>Perangkat akan dimulai ulang dalam <span id="countdown">10</span> detik.</p>
+        </div>
+        <button class="restart-button" onclick="revealPrank()">Mulai Ulang Sekarang</button>
+    </div>
+
+    <!-- Layar Hasil Prank -->
+    <div class="prank-reveal" id="prank-reveal">
+        <h1>haaaahaa! 😂</h1>
+        <p>Jangan marah ya, ini cuma prank browser :)</p>
+        <p>handphone nya aman, kok! by ega</p>
+        <button class="close-button" onclick="window.close()">Tutup Tab Ini</button>
+    </div>
+
+    <script>
+        let timeLeft = 10;
+        const countdownEl = document.getElementById('countdown');
+        const virusScreen = document.getElementById('virus-screen');
+        const prankReveal = document.getElementById('prank-reveal');
+
+        // Fungsi untuk menghitung mundur
+        const timer = setInterval(() => {
+            timeLeft--;
+            countdownEl.innerText = timeLeft;
+
+            // Jika waktu habis, tampilkan layar prank
+            if (timeLeft <= 0) {
+                clearInterval(timer); // Hentikan timer
+                revealPrank();
+            }
+        }, 1000); // Jalankan setiap 1 detik
+
+        // Fungsi untuk menampilkan hasil prank
+        function revealPrank() {
+            virusScreen.style.display = 'none';
+            prankReveal.style.display = 'flex';
+            clearInterval(timer); // Pastikan timer berhenti
+        }
+    </script>
+
+</body>
+</html>
